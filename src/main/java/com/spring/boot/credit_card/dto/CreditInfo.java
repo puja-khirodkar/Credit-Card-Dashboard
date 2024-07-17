@@ -1,15 +1,27 @@
 package com.spring.boot.credit_card.dto;
 
-import java.util.Date;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 public class CreditInfo {
-
+    @Id
     String customerId;
     String cardNumber;
     String cardHolderFirstName;
     String cardHolderLastName;
-    Date cardExpiryDate;
+    String cardExpiryDate;
     String cvv;
+
+    public CreditInfo(String customerId, String cardNumber, String cardHolderFirstName, String cardHolderLastName, String cardExpiryDate, String cvv) {
+        super();
+        this.cardNumber = cardNumber;
+        this.customerId = customerId;
+        this.cardHolderFirstName = cardHolderFirstName;
+        this.cardHolderLastName = cardHolderLastName;
+        this.cardExpiryDate = cardExpiryDate;
+        this.cvv = cvv;
+    }
 
     public String getCustomerId() {
         return customerId;
@@ -43,11 +55,11 @@ public class CreditInfo {
         this.cardHolderLastName = cardHolderLastName;
     }
 
-    public Date getCardExpiryDate() {
+    public String getCardExpiryDate() {
         return cardExpiryDate;
     }
 
-    public void setCardExpiryDate(Date cardExpiryDate) {
+    public void setCardExpiryDate(String cardExpiryDate) {
         this.cardExpiryDate = cardExpiryDate;
     }
 
